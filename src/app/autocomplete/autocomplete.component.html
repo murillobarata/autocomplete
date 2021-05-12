@@ -1,0 +1,35 @@
+<div>
+  <label for="itemIdInput">{{ label }}</label>
+  <div class="autocomplete">
+    <input
+      #searchItemInput
+      [(ngModel)]="itemIdInput"
+      name="typeahead"
+      type="text"
+      class="form-control"
+      [id]="componentId"
+      [placeholder]="placeholder"
+      [class.error]="!!itemIdInput && !itemList.includes(itemIdInput)"
+      [disabled]="disabled"
+      (focus)="filterItems('')"
+      (keydown)="onKeyDown($event)"
+      (input)="filterItems(searchItemInput.value)"
+      (focusout)="hideAutoComplete()"
+    />
+    <div
+      *ngIf="showItemsAutoComplete && autocompleteItems.length > 0"
+      id="items-autocomplete-list"
+      class="autocomplete-list"
+    >
+      <div
+        class="autocomplete-item"
+        *ngFor="let item of autocompleteItems; let i = index"
+        [class.autocomplete-active]="i === indexIdSelect"
+        (click)="selectItem(item)"
+        (mousedown)="selectItem(item)"
+      >
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>

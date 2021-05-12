@@ -1,0 +1,24 @@
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10vw 0;
+  width: 100vw;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+}
+
+.custom-input {
+  width: 30vw;
+}
+
+.result {
+  width: 100vw;
+  margin-top: 24px;
+}
